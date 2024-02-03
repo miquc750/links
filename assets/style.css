@@ -1,11 +1,31 @@
+@import url();
+
 :root {
     --font-size: 16px;
     --font-weight: 400;
     --gutter: 16px;
+    --black: #212121;
+    --white: #F4F1E8;
 }
 
-html {
+header {
+    background-color: var(--white);
+    color: var(--black);
+    padding: calc(var(--gutter)*4) calc(var(--gutter)*3) calc(var(--gutter)*4) calc(var(--gutter)*3);
+}
+
+main {
     padding: var(--gutter);
+    background-color: var(--white);
+    color: var(--black);
+}
+
+footer {
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 14;
+    text-align: center;
+    padding: calc(var(--gutter)*3) calc(var(--gutter)*2) calc(var(--gutter)*3) calc(var(--gutter)*2);
 }
 
 h1 {
