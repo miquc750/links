@@ -13,7 +13,6 @@
 /* Mobile */
 
     /* parts of the page */
-
     header {
         background-color: var(--white);
         color: var(--black);
@@ -21,9 +20,14 @@
     }
 
     main {
-        padding: calc(var(--gutter)*20) var(--gutter) calc(var(--gutter)*20) var(--gutter);
+        padding: calc(var(--gutter)*10) var(--gutter) calc(var(--gutter)*10) var(--gutter);
         background-color: var(--white);
         color: var(--black);
+    }
+    
+    section {
+        padding-top: calc(var(--gutter)*10);
+        padding-bottom: calc(var(--gutter)*10);
     }
 
     footer {
@@ -65,8 +69,19 @@
         margin-bottom: calc(var(--gutter)/2);
     }
 
+    blockquote {
+        font-family: 'Italiana';
+        font-size: calc(var(--font-size)*6);
+        line-height: 1.25;
+        margin-bottom: calc(var(--gutter)/2);
+    }
+
     em {
         font-style: italic;
+    }
+
+    strong {
+        font-weight: 600;
     }
 
     /* elements */
@@ -88,6 +103,11 @@
         flex-direction: row;
         width: 100%;
         justify-content: end;
+    }
+
+    time {
+        border: solid 1px var(--black);
+        border-radius: 50%;
     }
 
 /* Desktop */
