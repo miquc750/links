@@ -38,6 +38,31 @@
         padding: calc(var(--gutter)*6) calc(var(--gutter)*2) calc(var(--gutter)*6) calc(var(--gutter)*2);
     }
 
+    /* specific sections */
+
+    .image h2 {
+        padding-top: calc(var(--gutter)*4);
+    }
+
+    .image h2::before {
+        content:"↘ ";
+    }
+    
+    .quote p {
+        margin-top: calc(var(--gutter)*4);
+        padding-top: var(--gutter);
+        padding-bottom: var(--gutter);
+        border-bottom: 1px solid var(--black);
+        border-top: 1px solid var(--black);
+    }
+
+    .pdf p {
+        margin-top: calc(var(--gutter)*2);
+        margin-bottom: calc(var(--gutter)*4);
+        padding-top: var(--gutter);
+        border-top: 1px solid var(--black);
+    }
+
     /* text */
 
     h1 {
@@ -113,5 +138,64 @@
 /* Desktop */
 
 @media (min-width: 768px) {
+
+    /* parts of the page */
+    header {
+        padding: calc(var(--gutter)*10) 10% calc(var(--gutter)*10) 10%;
+    }
+
+    main {
+        padding: calc(var(--gutter)*10) 10% calc(var(--gutter)*10) 10%;
+    }
+
+    /* sections */
+    section {
+        max-width: 50%;
+    }
+    
+    /* text */
+    h1 {
+        font-family: 'Italiana';
+        font-size: calc(var(--font-size)*12);
+        font-weight: var(--font-weight);
+        max-width: 7em;
+        line-height: 1;
+        margin-bottom: calc(var(--gutter)*3);
+    }
+
+    p {
+        font-family: 'Montserrat';
+        font-size: calc(var(--font-size)*1.25);
+        max-width: 36em;
+        line-height: 1.5;
+        margin-bottom: calc(var(--gutter)/2);   
+    }
+
+    .pdf p, .quote p {
+        min-width: 100%;
+    }
+
+    /* elements */
+
+    button {
+        font-family: 'Montserrat';
+        font-size: calc(var(--font-size)*1.25);
+        width: 168px;
+        height: 168px;
+        line-height: 1.5;
+        margin: 0;  
+    }
+
+    .button {
+        justify-content: left;
+        max-height: fit-content;
+        max-width: fit-content;
+        margin-top: calc(var(--gutter)*4);
+    }
+
+    .button:hover {
+        transform: scale(1.1);
+        transition: 0.5s ease;
+    }
     
 }
