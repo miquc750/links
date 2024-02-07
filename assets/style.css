@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
 
+/* Variables setting */
+
 :root {
     --font-size: 16px;
     --font-weight: 400;
@@ -8,69 +10,87 @@
     --white: #F4F1E8;
 }
 
-header {
-    background-color: var(--white);
-    color: var(--black);
-    padding: calc(var(--gutter)*6) var(--gutter) calc(var(--gutter)*6) var(--gutter);
-}
+/* Mobile */
 
-main {
-    padding: calc(var(--gutter)*3) var(--gutter) calc(var(--gutter)*6) var(--gutter);
-    background-color: var(--white);
-    color: var(--black);
-}
+    /* parts of the page */
 
-footer {
-    background-color: var(--black);
-    color: var(--white);
-    font-size: 14;
-    text-align: center;
-    padding: calc(var(--gutter)*3) calc(var(--gutter)*2) calc(var(--gutter)*3) calc(var(--gutter)*2);
-}
+    header {
+        background-color: var(--white);
+        color: var(--black);
+        padding: calc(var(--gutter)*6) var(--gutter) calc(var(--gutter)*6) var(--gutter);
+    }
 
-h1 {
-    font-family: 'Italiana';
-    font-size: calc(var(--font-size)*15);
-    font-weight: var(--font-weight);
-    line-height: 1.2;
-    margin-bottom: calc(var(--gutter)*2);
-}
+    main {
+        padding: calc(var(--gutter)*20) var(--gutter) calc(var(--gutter)*20) var(--gutter);
+        background-color: var(--white);
+        color: var(--black);
+    }
 
-h2 {
-    font-family: 'Italiana';
-    font-size: calc(var(--font-size)*6);
-    font-weight: var(--font-weight);
-    margin-bottom: calc(var(--gutter)/1.5);
-}
+    footer {
+        background-color: var(--black);
+        color: var(--white);
+        font-size: 14;
+        text-align: center;
+        padding: calc(var(--gutter)*6) calc(var(--gutter)*2) calc(var(--gutter)*6) calc(var(--gutter)*2);
+    }
 
-header p {
-    font-family: 'Montserrat';
-    font-size: calc(var(--font-size)*1.5);
-    line-height: 1.5;
-    margin-bottom: calc(var(--gutter)/2);
-}
+    /* text */
 
-p {
-    font-family: 'Montserrat';
-    font-size: var(--font-size);
-    line-height: 1.5;
-    margin-bottom: calc(var(--gutter)/2);
-}
+    h1 {
+        font-family: 'Italiana';
+        font-size: calc(var(--font-size)*15);
+        font-weight: var(--font-weight);
+        line-height: 1.2;
+        margin-bottom: calc(var(--gutter)*2);
+    }
 
-em {
-    font-style: italic;
-}
+    h2 {
+        font-family: 'Italiana';
+        font-size: calc(var(--font-size)*6);
+        font-weight: var(--font-weight);
+        margin-bottom: calc(var(--gutter)/1.5);
+    }
 
-button {
-    background-color: var(--black);
-    color: var(--white);
-    font-family: 'Montserrat';
-    font-size: calc(var(--font-size)*1.5);
-    width: 244px;
-    height: 244px;
-    border-radius: 100%;
-    text-align: center;
-}
+    header p {
+        font-family: 'Montserrat';
+        font-size: calc(var(--font-size)*1.5);
+        line-height: 1.5;
+        margin-bottom: calc(var(--gutter)/2);
+    }
+
+    p {
+        font-family: 'Montserrat';
+        font-size: var(--font-size);
+        line-height: 1.5;
+        margin-bottom: calc(var(--gutter)/2);
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    /* elements */
+
+    button {
+        background-color: var(--black);
+        margin-top: calc(var(--gutter)*6);
+        color: var(--white);
+        font-family: 'Montserrat';
+        font-size: calc(var(--font-size)*3);
+        width: 8em;
+        height: 8em;
+        border-radius: 100%;
+        text-align: center;
+    }
+
+    .button {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: end;
+    }
+
+/* Desktop */
 
 @media (min-width: 768px) {
     
