@@ -1,4 +1,4 @@
-@import url();
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
 
 :root {
     --font-size: 16px;
@@ -11,11 +11,11 @@
 header {
     background-color: var(--white);
     color: var(--black);
-    padding: calc(var(--gutter)*4) calc(var(--gutter)*3) calc(var(--gutter)*4) calc(var(--gutter)*3);
+    padding: calc(var(--gutter)*6) var(--gutter) calc(var(--gutter)*6) var(--gutter);
 }
 
 main {
-    padding: var(--gutter);
+    padding: calc(var(--gutter)*3) var(--gutter) calc(var(--gutter)*6) var(--gutter);
     background-color: var(--white);
     color: var(--black);
 }
@@ -29,24 +29,49 @@ footer {
 }
 
 h1 {
-    font-size: calc(var(--font-size)*3);
+    font-family: 'Italiana';
+    font-size: calc(var(--font-size)*15);
     font-weight: var(--font-weight);
-    margin-bottom: var(--gutter);
+    line-height: 1.2;
+    margin-bottom: calc(var(--gutter)*2);
 }
 
 h2 {
-    font-size: calc(var(--font-size)*1.5);
+    font-family: 'Italiana';
+    font-size: calc(var(--font-size)*6);
     font-weight: var(--font-weight);
     margin-bottom: calc(var(--gutter)/1.5);
 }
 
-h3 {
+header p {
+    font-family: 'Montserrat';
     font-size: calc(var(--font-size)*1.5);
-    font-weight: var(--font-weight);
-    margin-bottom: calc(var(--gutter)/1.5);
+    line-height: 1.5;
+    margin-bottom: calc(var(--gutter)/2);
 }
 
 p {
+    font-family: 'Montserrat';
     font-size: var(--font-size);
+    line-height: 1.5;
     margin-bottom: calc(var(--gutter)/2);
+}
+
+em {
+    font-style: italic;
+}
+
+button {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: 'Montserrat';
+    font-size: calc(var(--font-size)*1.5);
+    width: 244px;
+    height: 244px;
+    border-radius: 100%;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    
 }
