@@ -5,10 +5,8 @@ markdownIt.src = 'https://cdn.jsdelivr.net/npm/markdown-it@14.0.0/dist/markdown-
 document.head.appendChild(markdownIt)
 
 
-
 // Okay, Are.na stuff!
 let channelSlug = 'utopian-realities-utwpfdnzrfs' // The “slug” is just the end of the URL
-
 
 
 // First, let’s lay out some *functions*, starting with our basic metadata:
@@ -16,17 +14,15 @@ let placeChannelInfo = (data) => {
 	// Target some elements in your HTML:
 	let channelTitle = document.getElementById('channel-title')
 	let channelDescription = document.getElementById('channel-description')
-	let channelCount = document.getElementById('channel-count')
-	let channelLink = document.getElementById('channel-link')
+	// let channelCount = document.getElementById('channel-count')
+	// let channelLink = document.getElementById('channel-link')
 
 	// Then set their content/attributes to our data:
 	channelTitle.innerHTML = data.title
 	channelDescription.innerHTML = window.markdownit().render(data.metadata.description) // Converts Markdown → HTML
-	channelCount.innerHTML = data.length
-	channelLink.href = `https://www.are.na/channel/${channelSlug}`
+	// channelCount.innerHTML = data.length
+	// channelLink.href = `https://www.are.na/channel/${channelSlug}`
 }
-
-
 
 // Then our big function for specific-block-type rendering:
 let renderBlock = (block) => {
@@ -37,7 +33,7 @@ let renderBlock = (block) => {
 	if (block.class == 'Link') {
 		let linkItem =
 			`
-			<li>
+			<li class="link">
 				<p><em>Link</em></p>
 				<picture>
 					<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
@@ -54,12 +50,28 @@ let renderBlock = (block) => {
 
 	// Images!
 	else if (block.class == 'Image') {
-		// …up to you!
+		let imageItem =
+			`
+			<li class="image">
+				<figure>
+					<img src=${ block.image.large.url } alt=${ block.title } by ${ block.user.full_name }>
+						<figcaption>${ block.title }</figcaption>
+				</figure>
+			</li>
+			`
+		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
 	}
 
 	// Text!
 	else if (block.class == 'Text') {
-		// …up to you!
+		let textItem =
+			`
+			<li class="quote">
+                <blockquote>${ block.content_html }</blockquote>
+                <p class="author">${block.title}</p>
+            </li>
+			`
+		channelBlocks.insertAdjacentHTML('beforeend', textItem)
 	}
 
 	// Uploaded (not linked) media…
@@ -83,8 +95,37 @@ let renderBlock = (block) => {
 
 		// Uploaded PDFs!
 		else if (attachment.includes('pdf')) {
-			// …up to you!
+			console.log(block)
+			let pdfItem =
+				`
+					<li class="pdf">
+						<figcaption>
+							<h2>${block.title}</h2>
+							<p>${block.description}</p>
+						</figcaption>
+						<a href=${block.attachment.url}>
+							<img> src="${block.image.large.url}" alt="${block.title}"
+						</a>
+					</li> 
+				`
+				channelBlocks.insertAdjacentHTML('beforeend', pdfItem)
+
+			if (block.description == null) {
+				pdfItem =
+					`
+					<li class="pdf">
+						<figcaption>
+							<h2>${block.title}</h2>
+						</figcaption>
+						<a href=${block.attachment.url}>
+							<img> src="${block.image.large.url}" alt="${block.title}"
+						</a>
+					</li> 
+					`
+					channelBlocks.insertAdjacentHTML('beforeend', pdfItem)
+			}
 		}
+
 
 		// Uploaded audio!
 		else if (attachment.includes('audio')) {
@@ -126,8 +167,6 @@ let renderBlock = (block) => {
 	}
 }
 
-
-
 // It‘s always good to credit your work:
 let renderUser = (user, container) => { // You can have multiple arguments for a function!
 	let userAddress =
@@ -142,7 +181,6 @@ let renderUser = (user, container) => { // You can have multiple arguments for a
 }
 
 
-
 // Now that we have said what we can do, go get the data:
 fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
 	.then((response) => response.json()) // Return it as JSON data
@@ -152,7 +190,7 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 
 		// Loop through the `contents` array (list), backwards. Are.na returns them in reverse!
 		data.contents.reverse().forEach((block) => {
-			// console.log(block) // The data for a single block
+			console.log(block) // The data for a single block
 			renderBlock(block) // Pass the single block data to the render function
 		})
 

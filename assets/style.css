@@ -13,6 +13,10 @@
 /* Mobile */
 
     /* parts of the page */
+    html {
+        max-height: fit-content;
+    }
+
     header {
         background-color: var(--white);
         color: var(--black);
@@ -39,6 +43,11 @@
     }
 
     /* specific sections */
+
+    section {
+        max-width: 100%;
+        overflow:hidden ;
+    }
 
     .image h2 {
         padding-top: calc(var(--gutter)*4);
@@ -67,7 +76,8 @@
 
     h1 {
         font-family: 'Italiana';
-        font-size: calc(var(--font-size)*15);
+        font-size: calc(var(--font-size)*5);
+        max-width: 100%;
         font-weight: var(--font-weight);
         line-height: 1.2;
         margin-bottom: calc(var(--gutter)*2);
@@ -128,6 +138,10 @@
         flex-direction: row;
         width: 100%;
         justify-content: end;
+    }
+
+    .link {
+        color: blue;
     }
 
     time {
