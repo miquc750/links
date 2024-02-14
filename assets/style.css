@@ -20,11 +20,18 @@
     header {
         background-color: var(--white);
         color: var(--black);
-        padding: calc(var(--gutter)*6) var(--gutter) calc(var(--gutter)*6) var(--gutter);
+        padding: calc(var(--gutter)*4) var(--gutter) calc(var(--gutter)*2) var(--gutter);
+    }
+
+    #channel-description p {
+        font-family: 'Montserrat';
+        font-size: calc(var(--font-size)*1.2);
+        line-height: 1.5;
+        margin-bottom: calc(var(--gutter)/2);
     }
 
     main {
-        padding: calc(var(--gutter)*10) var(--gutter) calc(var(--gutter)*10) var(--gutter);
+        padding: calc(var(--gutter)*4) var(--gutter) calc(var(--gutter)*4) var(--gutter);
         background-color: var(--white);
         color: var(--black);
     }
@@ -32,6 +39,10 @@
     section {
         padding-top: calc(var(--gutter)*10);
         padding-bottom: calc(var(--gutter)*10);
+    }
+
+    li {
+        padding-bottom: calc(var(--gutter)*4);
     }
 
     footer {
@@ -57,21 +68,6 @@
         content:"↘ ";
     }
     
-    .quote p {
-        margin-top: calc(var(--gutter)*4);
-        padding-top: var(--gutter);
-        padding-bottom: var(--gutter);
-        border-bottom: 1px solid var(--black);
-        border-top: 1px solid var(--black);
-    }
-
-    .pdf p {
-        margin-top: calc(var(--gutter)*2);
-        margin-bottom: calc(var(--gutter)*4);
-        padding-top: var(--gutter);
-        border-top: 1px solid var(--black);
-    }
-
     /* text */
 
     h1 {
@@ -97,18 +93,46 @@
         margin-bottom: calc(var(--gutter)/2);
     }
 
-    p {
+    p, .author {
         font-family: 'Montserrat';
         font-size: var(--font-size);
         line-height: 1.5;
         margin-bottom: calc(var(--gutter)/2);
     }
 
-    blockquote {
-        font-family: 'Italiana';
-        font-size: calc(var(--font-size)*6);
+    .author {
+        padding-top: calc(var(--gutter)/2);
+    }
+
+    .author::before {
+        content:"— ";
+    }
+
+    blockquote p {
+        font-family: 'Montserrat';
+        font-style: italic;
+        font-size: calc(var(--font-size)*1.5);
         line-height: 1.25;
-        margin-bottom: calc(var(--gutter)/2);
+        padding-top: var(--gutter);
+        padding-bottom: var(--gutter);
+        border-bottom: 1px solid var(--black);
+        border-top: 1px solid var(--black);
+    }
+
+    blockquote p::before {
+        content: "«";
+    }
+
+    blockquote p::after {
+        content: "»";
+    }
+
+    h3, figcaption, .pdf h2 {
+        font-family: 'Italiana';
+        font-size: calc(var(--font-size)*2);
+        line-height: 1.25;
+        padding-top: var(--gutter);
+        padding-bottom: calc(var(--gutter)/2);
     }
 
     em {
@@ -123,12 +147,12 @@
 
     button {
         background-color: var(--black);
-        margin-top: calc(var(--gutter)*6);
+        margin-top: calc(var(--gutter)*2);
         color: var(--white);
         font-family: 'Montserrat';
-        font-size: calc(var(--font-size)*3);
-        width: 8em;
-        height: 8em;
+        font-size: calc(var(--font-size)*1.2);
+        width: 160px;
+        height: 160px;
         border-radius: 100%;
         text-align: center;
     }
@@ -137,11 +161,16 @@
         display: flex;
         flex-direction: row;
         width: 100%;
-        justify-content: end;
+        justify-content: start;
     }
 
     .link {
-        color: blue;
+        padding-top: var(--gutter);
+        padding-bottom: calc(var(--gutter)*2);
+        margin-top: var(--gutter);
+        margin-bottom: calc(var(--gutter)*3);
+        border-top: 1px solid var(--black);
+        border-bottom: 1px solid var(--black);
     }
 
     time {
@@ -162,9 +191,17 @@
         padding: calc(var(--gutter)*10) 10% calc(var(--gutter)*10) 10%;
     }
 
+    footer {
+        display: flex;
+        justify-content: center;
+    }
+
     /* sections */
-    section {
-        max-width: 50%;
+    ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: calc(var(--gutter)*2);
+        columns: 2;
     }
     
     /* text */
@@ -187,6 +224,10 @@
 
     .pdf p, .quote p {
         min-width: 100%;
+    }
+
+    footer p {
+        text-align: center;
     }
 
     /* elements */

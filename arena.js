@@ -34,15 +34,14 @@ let renderBlock = (block) => {
 		let linkItem =
 			`
 			<li class="link">
-				<p><em>Link</em></p>
 				<picture>
 					<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
 					<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
 					<img src="${ block.image.original.url }">
 				</picture>
 				<h3>${ block.title }</h3>
-				${ block.description_html }
-				<p><a href="${ block.source.url }">See the original ↗</a></p>
+				<p>${ block.description_html }</p>
+				<a href="${ block.source.url }" class="button"><button>Visit<br>Link</button></a>
 			</li>
 			`
 		channelBlocks.insertAdjacentHTML('beforeend', linkItem)
@@ -94,21 +93,7 @@ let renderBlock = (block) => {
 		}
 
 		// Uploaded PDFs!
-		else if (attachment.includes('pdf')) {
-			console.log(block)
-			let pdfItem =
-				`
-					<li class="pdf">
-						<figcaption>
-							<h2>${block.title}</h2>
-							<p>${block.description}</p>
-						</figcaption>
-						<a href=${block.attachment.url}>
-							<img> src="${block.image.large.url}" alt="${block.title}"
-						</a>
-					</li> 
-				`
-				channelBlocks.insertAdjacentHTML('beforeend', pdfItem)
+		
 
 			if (block.description == null) {
 				pdfItem =
@@ -118,13 +103,27 @@ let renderBlock = (block) => {
 							<h2>${block.title}</h2>
 						</figcaption>
 						<a href=${block.attachment.url}>
-							<img> src="${block.image.large.url}" alt="${block.title}"
+							<img src="${block.image.large.url}" alt="${block.title}">
 						</a>
 					</li> 
 					`
 					channelBlocks.insertAdjacentHTML('beforeend', pdfItem)
-			}
-		}
+			} else if (attachment.includes('pdf')) {
+				console.log(block)
+				let pdfItem =
+					`
+						<li class="pdf">
+							<figcaption>
+								<h2>${block.title}</h2>
+								<p>${block.description}</p>
+							</figcaption>
+							<a href=${block.attachment.url}>
+								<img src=${block.image.large.url} alt="${block.title}">
+							</a>
+						</li> 
+					`
+					channelBlocks.insertAdjacentHTML('beforeend', pdfItem)
+				}
 
 
 		// Uploaded audio!
