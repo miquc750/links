@@ -113,6 +113,7 @@
         font-style: italic;
         font-size: calc(var(--font-size)*1.5);
         line-height: 1.25;
+        width: 100%;
         padding-top: var(--gutter);
         padding-bottom: var(--gutter);
         border-bottom: 1px solid var(--black);
@@ -200,7 +201,7 @@
     ul {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: calc(var(--gutter)*2);
+        gap: calc(var(--gutter)*5);
         columns: 2;
     }
     
