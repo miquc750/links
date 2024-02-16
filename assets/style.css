@@ -156,6 +156,7 @@
         height: 160px;
         border-radius: 100%;
         text-align: center;
+        cursor: pointer;
     }
 
     .button {
@@ -163,6 +164,7 @@
         flex-direction: row;
         width: 100%;
         justify-content: start;
+        cursor: pointer;
     }
 
     .link {
