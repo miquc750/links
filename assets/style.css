@@ -25,7 +25,7 @@
 
     #channel-description p {
         font-family: 'Montserrat';
-        font-size: calc(var(--font-size)*1.2);
+        font-size: var(--font-size);
         line-height: 1.5;
         margin-bottom: calc(var(--gutter)/2);
     }
@@ -42,7 +42,11 @@
     }
 
     li {
-        padding-bottom: calc(var(--gutter)*4);
+        height: 160px;
+        object-fit: cover;
+        position: relative;
+        transform: translate(0, 0);
+        transition: transform 0.5s ease;
     }
 
     footer {
@@ -76,7 +80,7 @@
         max-width: 100%;
         font-weight: var(--font-weight);
         line-height: 1.2;
-        margin-bottom: calc(var(--gutter)*2);
+        margin-bottom: var(--gutter);
     }
 
     h2 {
@@ -88,7 +92,7 @@
 
     header p {
         font-family: 'Montserrat';
-        font-size: calc(var(--font-size)*1.5);
+        font-size: var(--font-size);
         line-height: 1.5;
         margin-bottom: calc(var(--gutter)/2);
     }
@@ -111,13 +115,13 @@
     blockquote p {
         font-family: 'Montserrat';
         font-style: italic;
-        font-size: calc(var(--font-size)*1.5);
+        font-size: var(--font-size);
         line-height: 1.25;
         width: 100%;
-        padding-top: var(--gutter);
-        padding-bottom: var(--gutter);
-        border-bottom: 1px solid var(--black);
-        border-top: 1px solid var(--black);
+        padding: var(--gutter);
+        background-color: var(--black);
+        color: var(--white);
+        border-radius: 16px;
     }
 
     blockquote p::before {
@@ -146,6 +150,24 @@
 
     /* elements */
 
+    #header-button {
+        font-family: 'Montserrat';
+        font-size: var(--font-size);
+        line-height: 1.5;
+        font-weight: 900;
+    }
+
+    #header-button:hover {
+        color: red;
+        transition: 0.5s ease-in;
+    }
+
+    #header-button:hover::after {
+        content:" ↗";
+        transition: 2s ease-in;
+    }
+
+
     button {
         background-color: var(--black);
         margin-top: calc(var(--gutter)*2);
@@ -167,14 +189,14 @@
         cursor: pointer;
     }
 
-    .link {
+    /*.link {
         padding-top: var(--gutter);
         padding-bottom: calc(var(--gutter)*2);
         margin-top: var(--gutter);
         margin-bottom: calc(var(--gutter)*3);
         border-top: 1px solid var(--black);
         border-bottom: 1px solid var(--black);
-    }
+    }*/
 
     time {
         border: solid 1px var(--black);
@@ -186,12 +208,26 @@
 @media (min-width: 768px) {
 
     /* parts of the page */
+
     header {
-        padding: calc(var(--gutter)*10) 10% calc(var(--gutter)*10) 10%;
+        max-width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        padding: 3%;
+        gap: calc(var(--gutter)*1.5);
+        background-color: var(--black);
+        color: var(--white);
+        position: fixed;
+        top:0;
+        z-index: 1;
     }
 
     main {
-        padding: calc(var(--gutter)*10) 10% calc(var(--gutter)*10) 10%;
+        display: flex;
+        flex-direction: row;
+        padding: 0;
     }
 
     footer {
@@ -200,21 +236,88 @@
     }
 
     /* sections */
+
+    section {
+        padding:  calc(var(--gutter)*3) calc(var(--gutter)*3) calc(var(--gutter)*3) 25%;
+        overflow: hidden;
+
+    }
+
     ul {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: calc(var(--gutter)*5);
-        columns: 2;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        row-gap: -240px;
+        column-gap: -144px;
+    }
+
+    /* transformations */
+     li {
+        filter: grayscale(100%);
+     }
+
+     li:hover {
+        filter: unset;
+        z-index: 1;
+        transition: 0.5s ease-in-out;
+     }
+
+    li:nth-child(2), li:nth-child(5), li:nth-child(12), li:nth-child(26), li:nth-child(41) {
+        position: relative;
+        transform: translate(0, 0) rotate(6deg);
+    }
+
+    li:nth-child(3), li:nth-child(11), li:nth-child(28), li:nth-child(36) {
+        position: relative;
+        transform: translate(56px, 0) rotate(13deg);
+    }
+
+    li:nth-child(6), li:nth-child(17), li:nth-child(33), li:nth-child(40) {
+        position: relative;
+        transform: translate(0, -32px) rotate(79deg);
+    }
+
+    li:nth-child(7), li:nth-child(29), li:nth-child(21), li:nth-child(39) {
+        position: relative;
+        transform: translate(32px, 0) rotate(64deg);
+    }
+
+    li:nth-child(4), li:nth-child(10), li:nth-child(23), li:nth-child(30) {
+        position: relative;
+        transform: translate(0, -48px) rotate(-13deg);
+    }
+
+    li:nth-child(1), li:nth-child(19), li:nth-child(26), li:nth-child(32) {
+        position: relative;
+        transform: translate(-32px, 0) rotate(-43deg);
+    }
+
+    li:nth-child(8), li:nth-child(13), li:nth-child(15), li:nth-child(22), li:nth-child(43) {
+        position: relative;
+        transform: translate(-64px, -32px) rotate(200deg);
+    }
+
+    li:nth-child(16), li:nth-child(37), li:nth-child(20), li:nth-child(27) {
+        position: relative;
+        transform: translate(16px, 0) rotate(8deg);
+    }
+
+    li:nth-child(9), li:nth-child(24), li:nth-child(31), li:nth-child(34) {
+        position: relative;
+        transform: translate(-48px, 104px) rotate(-106deg);
+    }
+
+    li:nth-child(35), li:nth-child(38), li:nth-child(42), li:nth-child(14) {
+        position: relative;
+        transform: translate(16px, 56px) rotate(34deg);
     }
     
     /* text */
     h1 {
         font-family: 'Italiana';
-        font-size: calc(var(--font-size)*12);
         font-weight: var(--font-weight);
         max-width: 7em;
         line-height: 1;
-        margin-bottom: calc(var(--gutter)*3);
+        margin: 0;
     }
 
     p {
@@ -223,6 +326,11 @@
         max-width: 36em;
         line-height: 1.5;
         margin-bottom: calc(var(--gutter)/2);   
+    }
+
+    aside {
+        max-height: 100%;
+        overflow-y: scroll;
     }
 
     .pdf p, .quote p {
@@ -242,6 +350,8 @@
         height: 168px;
         line-height: 1.5;
         margin: 0;  
+        background-color: var(--white);
+        color: var(--black);
     }
 
     .button {

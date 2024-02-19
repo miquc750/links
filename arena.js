@@ -39,11 +39,11 @@ let renderBlock = (block) => {
 					<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
 					<img src="${ block.image.original.url }">
 				</picture>
-				<h3>${ block.title }</h3>
-				<p>${ block.description_html }</p>
-				<a href="${ block.source.url }" class="button"><button>Visit<br>Link</button></a>
 			</li>
 			`
+			//<h3>${ block.title }</h3>
+			//<p>${ block.description_html }</p>
+			//<a href="${ block.source.url }" class="button"><button>Visit<br>Link</button></a>
 		channelBlocks.insertAdjacentHTML('beforeend', linkItem)
 	}
 
@@ -54,10 +54,10 @@ let renderBlock = (block) => {
 			<li class="image">
 				<figure>
 					<img src=${ block.image.large.url } alt=${ block.title } by ${ block.user.full_name }>
-						<figcaption>${ block.title }</figcaption>
 				</figure>
 			</li>
 			`
+			//<figcaption>${ block.title }</figcaption>
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
 	}
 
@@ -67,9 +67,10 @@ let renderBlock = (block) => {
 			`
 			<li class="quote">
                 <blockquote>${ block.content_html }</blockquote>
-                <p class="author">${block.title}</p>
             </li>
 			`
+			//<p class="author">${block.title}</p>
+
 		channelBlocks.insertAdjacentHTML('beforeend', textItem)
 	}
 
@@ -99,14 +100,15 @@ let renderBlock = (block) => {
 				pdfItem =
 					`
 					<li class="pdf">
-						<figcaption>
-							<h2>${block.title}</h2>
-						</figcaption>
 						<a href=${block.attachment.url}>
 							<img src="${block.image.large.url}" alt="${block.title}">
 						</a>
 					</li> 
 					`
+					//<figcaption>
+					//<h2>${block.title}</h2>
+					//</figcaption>
+
 					channelBlocks.insertAdjacentHTML('beforeend', pdfItem)
 			} else if (attachment.includes('pdf')) {
 				console.log(block)
