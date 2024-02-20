@@ -49,16 +49,40 @@ let renderBlock = (block) => {
 
 	// Images!
 	else if (block.class == 'Image') {
-		let imageItem =
+		if (block.description_html.length > 0) {
+			let imageItem =
 			`
-			<li class="image">
+			<li class="block block--image">
 				<figure>
-					<img src=${ block.image.large.url } alt=${ block.title } by ${ block.user.full_name }>
+					<img src="${ block.image.large.url }" alt="${ block.title } by ${ block.user.full_name }">
 				</figure>
+				<div class="block--image__description">
+					<figcaption>
+						<h3>${ block.title }</h3>
+						<p>${ block.description_html }</p>
+					</figcaption>
+				</div>
+				<button class="block--image__button">Click me!</button>
 			</li>
 			`
-			//<figcaption>${ block.title }</figcaption>
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
+		} else {
+			let imageItem =
+			`
+			<li class="block block--image">
+				<figure>
+					<img src="${ block.image.large.url }" alt="${ block.title } by ${ block.user.full_name }">
+				</figure>
+				<div class="block--image__description">
+					<figcaption>
+						<h3>${ block.title }</h3>
+					</figcaption>
+				</div>
+				<button class="block--image__button">Click me!</button>
+			</li>
+			`
+		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
+		}
 	}
 
 	// Text!
@@ -94,8 +118,6 @@ let renderBlock = (block) => {
 		}
 
 		// Uploaded PDFs!
-		
-
 			if (block.description == null) {
 				pdfItem =
 					`
@@ -180,7 +202,7 @@ let renderUser = (user, container) => { // You can have multiple arguments for a
 		`
 	container.insertAdjacentHTML('beforeend', userAddress)
 }
-
+ 
 
 // Now that we have said what we can do, go get the data:
 fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
@@ -200,3 +222,12 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		data.collaborators.forEach((collaborator) => renderUser(collaborator, channelUsers))
 		renderUser(data.user, channelUsers)
 	})
+
+
+// We add buttons to display more details
+let switchButtons = document.querySelectorAll('.block--image__button')
+switchButtons.forEach((switchButton) => {
+	switchButton.onclick = () => {
+		switchButton.parentElement.classList.toggle('active')
+	};
+})
