@@ -62,7 +62,7 @@ let renderBlock = (block) => {
 						<p>${ block.description_html }</p>
 					</figcaption>
 				</div>
-				<button class="block--image__button">Click me!</button>
+				<button class="image-button">Click me!</button>
 			</li>
 			`
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
@@ -78,7 +78,7 @@ let renderBlock = (block) => {
 						<h3>${ block.title }</h3>
 					</figcaption>
 				</div>
-				<button class="block--image__button">Click me!</button>
+				<button class="image-button">Click me!</button>
 			</li>
 			`
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
@@ -191,6 +191,7 @@ let renderBlock = (block) => {
 }
 
 // It‘s always good to credit your work:
+/*
 let renderUser = (user, container) => { // You can have multiple arguments for a function!
 	let userAddress =
 		`
@@ -202,8 +203,9 @@ let renderUser = (user, container) => { // You can have multiple arguments for a
 		`
 	container.insertAdjacentHTML('beforeend', userAddress)
 }
- 
+*/
 
+ 
 // Now that we have said what we can do, go get the data:
 fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
 	.then((response) => response.json()) // Return it as JSON data
@@ -219,15 +221,19 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 
 		// Also display the owner and collaborators:
 		let channelUsers = document.getElementById('channel-users') // Show them together
-		data.collaborators.forEach((collaborator) => renderUser(collaborator, channelUsers))
-		renderUser(data.user, channelUsers)
+		/*data.collaborators.forEach((collaborator) => renderUser(collaborator, channelUsers))
+		renderUser(data.user, channelUsers)*/
 	})
 
-
 // We add buttons to display more details
-let switchButtons = document.querySelectorAll('.block--image__button')
-switchButtons.forEach((switchButton) => {
-	switchButton.onclick = () => {
-		switchButton.parentElement.classList.toggle('active')
-	};
-})
+
+setTimeout(() => {
+	let switchButtons = document.querySelectorAll('.image-button');
+	switchButtons.forEach((switchButton) => {
+		console.log('culo 1');
+		switchButton.onclick = () => {
+			console.log('culo');
+			switchButton.parentElement.classList.toggle('active')
+		};
+	})
+}, "1000");

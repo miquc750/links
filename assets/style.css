@@ -82,8 +82,10 @@
 
     .block--image__description {
         position: fixed;
-        inset: 1em;
+        inset: 0em;
         background-color: red;
+        opacity: 80%;
+        backdrop-filter: blur (4px);
         color: var(--black);
         padding: 1em;
         z-index: 2;
@@ -272,8 +274,8 @@
 
     /* transformations */
      li {
-        filter: grayscale(100%);
-     }
+        filter: grayscale(100%) blur(4px);
+    }
 
      li:hover {
         filter: unset;
@@ -376,7 +378,7 @@
         margin-top: calc(var(--gutter)*4);
     }
 
-    .block--image__button {
+    .image-button {
         background-color: red;
         color: var(--white);
     }
