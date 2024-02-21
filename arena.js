@@ -53,16 +53,19 @@ let renderBlock = (block) => {
 			let imageItem =
 			`
 			<li class="block block--image">
-				<figure>
+				<button class="image-button">
 					<img src="${ block.image.large.url }" alt="${ block.title } by ${ block.user.full_name }">
-				</figure>
+				</button>
 				<div class="block--image__description">
-					<figcaption>
-						<h3>${ block.title }</h3>
-						<p>${ block.description_html }</p>
-					</figcaption>
+					<section class="flex_desc">
+						<img src="${ block.image.large.url }" alt="${ block.title } by ${ block.user.full_name }">
+						<figcaption>
+							<h3>${ block.title }</h3>
+							<p>${ block.description_html }</p>
+						</figcaption>
+						<button class="close-button">X</button>
+					</section>
 				</div>
-				<button class="image-button">Click me!</button>
 			</li>
 			`
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
@@ -70,15 +73,18 @@ let renderBlock = (block) => {
 			let imageItem =
 			`
 			<li class="block block--image">
-				<figure>
+				<button class="image-button">
 					<img src="${ block.image.large.url }" alt="${ block.title } by ${ block.user.full_name }">
-				</figure>
+				</button>
 				<div class="block--image__description">
-					<figcaption>
-						<h3>${ block.title }</h3>
-					</figcaption>
+					<section class="flex_desc">
+						<img src="${ block.image.large.url }" alt="${ block.title } by ${ block.user.full_name }">
+						<figcaption>
+							<h3>${ block.title }</h3>
+						</figcaption>
+						<button class="close-button"><img class="" src="https://flaticons.net/icon.php?slug_category=mobile-application&slug_icon=close" alt"close icon"></button>
+					</section>
 				</div>
-				<button class="image-button">Click me!</button>
 			</li>
 			`
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
@@ -228,12 +234,22 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 // We add buttons to display more details
 
 setTimeout(() => {
-	let switchButtons = document.querySelectorAll('.image-button');
-	switchButtons.forEach((switchButton) => {
-		console.log('culo 1');
-		switchButton.onclick = () => {
-			console.log('culo');
-			switchButton.parentElement.classList.toggle('active')
+	let openButtons = document.querySelectorAll('.image-button');
+	openButtons.forEach((openButton) => {
+		openButton.onclick = () => {
+			openButton.parentElement.classList.toggle('active')
 		};
 	})
+
+	//change the label of links
+	document.addEventListener("DOMContentLoaded", function() {
+    	var treaks = document.querySelectorAll("a"); // Get all <a> elements
+    
+		treaks.forEach(function(treak) {
+			treak.textContent = "Visit link"; // Change the text content of each link
+		});
+  	});
 }, "1000");
+
+
+
