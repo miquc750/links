@@ -50,11 +50,11 @@
     }
 
     footer {
-        background-color: var(--black);
-        color: var(--white);
+        background-color: var(--white);
+        color: var(--black);
         font-size: 14;
-        text-align: center;
-        padding: calc(var(--gutter)*6) calc(var(--gutter)*2) calc(var(--gutter)*6) calc(var(--gutter)*2);
+        text-align: left;
+        padding: calc(var(--gutter)*15) calc(var(--gutter)*2) calc(var(--gutter)*4) 40%;
     }
 
     /* specific sections */
@@ -444,7 +444,7 @@
     }
 
     footer p {
-        text-align: center;
+        text-align: left;
     }
 
     /* elements */
