@@ -82,7 +82,7 @@ let renderBlock = (block) => {
 						<figcaption>
 							<h3>${ block.title }</h3>
 						</figcaption>
-						<button class="close-button"><img class="" src="https://flaticons.net/icon.php?slug_category=mobile-application&slug_icon=close" alt"close icon"></button>
+						<button class="close-button">X</button>
 					</section>
 				</div>
 			</li>
@@ -211,6 +211,24 @@ let renderUser = (user, container) => { // You can have multiple arguments for a
 }
 */
 
+document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('click', (event) => {
+        let openButtons = document.querySelectorAll('.image-button');
+		openButtons.forEach((openButton) => {
+			openButton.onclick = () => {
+				openButton.parentElement.classList.toggle('active');
+			};
+		});
+
+		let closeButtons = document.querySelectorAll('.close-button');
+		closeButtons.forEach((closeButton) => {
+			closeButton.onclick = () => {
+				closeButton.parentElement.parentElement.parentElement.classList.remove('active');
+			};
+		});
+    });
+});    
+
  
 // Now that we have said what we can do, go get the data:
 fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
@@ -233,6 +251,8 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 
 // We add buttons to display more details
 
+/* FIXED - We no longer need the Timeout because we added an event delegation
+
 setTimeout(() => {
 	let openButtons = document.querySelectorAll('.image-button');
 	openButtons.forEach((openButton) => {
@@ -249,7 +269,9 @@ setTimeout(() => {
 			treak.textContent = "Visit link"; // Change the text content of each link
 		});
   	});
-}, "1000");
+}, "1000");*/
+
+
 
 
 
