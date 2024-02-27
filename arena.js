@@ -176,9 +176,19 @@ let renderBlock = (block) => {
 			// …still up to you, but we’ll give you the `video` element:
 			let videoItem =
 				`
-				<li>
-					<p><em>Video</em></p>
-					<video controls src="${ block.attachment.url }"></video>
+				<li class="block block--video">
+					<button class="image-button">
+						<video controls src="${ block.attachment.url }"></video>
+					</button>
+					<div class="block--image__description">
+						<section class="flex_desc">
+							<video controls src="${ block.attachment.url }"></video>
+							<figcaption>
+								<h3>This is the heading</h3>
+							</figcaption>
+							<button class="close-button">X</button>
+						</section>
+					</div>
 				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', videoItem)
@@ -187,32 +197,19 @@ let renderBlock = (block) => {
 		}
 
 		// Uploaded PDFs!
-			if (block.description == null) {
-				pdfItem =
-					`
-					<li class="pdf">
-						<a href=${block.attachment.url}>
-							<img src="${block.image.large.url}" alt="${block.title}">
-						</a>
-					</li> 
-					`
-					//<figcaption>
-					//<h2>${block.title}</h2>
-					//</figcaption>
-
-					channelBlocks.insertAdjacentHTML('beforeend', pdfItem)
-			} else if (attachment.includes('pdf')) {
-				console.log(block)
+		else if (attachment.includes('pdf')) {
 				let pdfItem =
 					`
-						<li class="pdf">
-							<figcaption>
-								<h2>${block.title}</h2>
-								<p>${block.description}</p>
-							</figcaption>
-							<a href=${block.attachment.url}>
+						<li class="block block--pdf">
+							<button class="image-button">
 								<img src=${block.image.large.url} alt="${block.title}">
-							</a>
+							</button>
+							<div class="block--pdf__description">
+								<section class="pdf_flex_desc">
+									<iframe src="${block.attachment.url}" title="${block.title}"></iframe>
+									<button class="close-button">X<button>
+								</section>
+							</div>
 						</li> 
 					`
 					channelBlocks.insertAdjacentHTML('beforeend', pdfItem)
@@ -224,9 +221,10 @@ let renderBlock = (block) => {
 			// …still up to you, but here’s an `audio` element:
 			let audioItem =
 				`
-				<li>
-					<p><em>Audio</em></p>
-					<audio controls src="${ block.attachment.url }"></video>
+				<li class="block block--image">
+					<button class="image-button">
+						<img src="https://img.freepik.com/free-vector/sound-wave-black-digital-background-entertainment-technology_53876-116186.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1708646400&semt=ais" alt="audio waves b&w">
+					</button>
 				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', audioItem)
@@ -243,9 +241,10 @@ let renderBlock = (block) => {
 			// …still up to you, but here’s an example `iframe` element:
 			let linkedVideoItem =
 				`
-				<li>
-					<p><em>Linked Video</em></p>
-					${ block.embed.html }
+				<li class="block block--video">
+					<button class="image-button">
+						${ block.embed.html }
+					</button>
 				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', linkedVideoItem)
@@ -255,9 +254,19 @@ let renderBlock = (block) => {
 		// Linked audio!
 		else if (embed.includes('rich')) {
 			// …up to you!
+			let linkedAudioItem =
+				`
+				<li class="block block--audio">
+					<button class="image-button">
+						<img src="https://img.freepik.com/free-vector/sound-wave-black-digital-background-entertainment-technology_53876-116186.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1708646400&semt=ais" alt="audio waves b&w">
+					</button>
+				</li>
+				`
+			channelBlocks.insertAdjacentHTML('beforeend', linkedAudioItem)
 		}
 	}
 }
+
 
 // It‘s always good to credit your work:
 /*
@@ -333,8 +342,3 @@ setTimeout(() => {
 		});
   	});
 }, "1000");*/
-
-
-
-
-

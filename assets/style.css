@@ -246,7 +246,7 @@
 
         /* Link blocks */
 
-        .block--link .block--link__description {
+        .block--link .block--link__description, .block--link .flex_desc {
             display: none;
         }
 
@@ -254,6 +254,24 @@
             display: block;
             transform: unset;  
             transition: 0s;
+        }
+
+        .block--link.active .flex_desc {
+            display: block;
+        }
+
+        .block--link.active .flex_desc {
+            position: fixed;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: start;
+            opacity: 100%;
+            min-width:100%;
+            height: 100%;
+            inset: var(--gutter);
+            background-color: var(--white);
+            border-radius: 16px;
         }
 
         .block--link h2 {
@@ -266,11 +284,11 @@
 
         .block--link__description {
             position: fixed;
-            inset:0em;
+            inset: 0;
             background-color: rgb(0 0 0 / 80%);
             color: var(--black)!;
             padding: 5%;
-            z-index: 2;
+            z-index: 1;
             transform: unset;
         }
 
@@ -279,6 +297,61 @@
         }
     
         .block--link.active{
+            transform: unset;
+            transition: 0s;
+        }
+
+        /* pdf */
+
+        .block--pdf .block--pdf__description, .block--pdf .pdf_flex_desc {
+            display: none;
+        }
+
+        .block--pdf.active .block--pdf__description {
+            display: block;
+            transform: unset;  
+            transition: 0s;
+            padding-right: var(--gutter);
+        }
+
+        iframe {
+            min-height: 100%;
+            width: 100%;
+        }
+
+        .block--pdf__description .pdf_flex_desc {
+            position: fixed;
+            display: flex;
+            flex-direction: row;
+            gap: var(--gutter);
+            inset: 5%;
+            background-color: var(--white);
+            border-radius: 16px;
+        }
+
+        .block--pdf h2 {
+            padding-top: calc(var(--gutter)*4);
+        }
+
+        .block--pdf h2::before {
+            content:"↘ ";
+        }
+
+        .block--pdf__description {
+            position: fixed;
+            inset: 0;
+            background-color: rgb(0 0 0 / 80%);
+            color: var(--black)!;
+            padding: 5%;
+            z-index: 1;
+            transform: unset;
+        }
+
+        .block--pdf.active .image-button {
+            z-index: -1;
+        }
+    
+        .block--pdf.active{
             transform: unset;
             transition: 0s;
         }
@@ -360,8 +433,8 @@
         line-height: 1.25;
         width: 100%;
         padding: var(--gutter);
-        background-color: var(--black);
-        color: red;
+        background-color: red;
+        color: var(--black);
         border-radius: 16px;
     }
 
