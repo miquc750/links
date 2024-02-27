@@ -31,20 +31,54 @@ let renderBlock = (block) => {
 
 	// Links!
 	if (block.class == 'Link') {
-		let linkItem =
-			`
-			<li class="link">
-				<picture>
-					<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
-					<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
-					<img src="${ block.image.original.url }">
-				</picture>
-			</li>
-			`
-			//<h3>${ block.title }</h3>
-			//<p>${ block.description_html }</p>
-			//<a href="${ block.source.url }" class="button"><button>Visit<br>Link</button></a>
-		channelBlocks.insertAdjacentHTML('beforeend', linkItem)
+		if (block.description_html.length > 0) {
+			let linkItem =
+				`
+				<li class="block block--link">
+					<button class="image-button">
+						<picture>
+							<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
+							<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
+							<img src="${ block.image.original.url }">
+						</picture>
+					</button
+					<div class="block--link__description">
+						<section class="flex_desc">
+							<img src="${ block.image.original.url }" alt="${ block.generated_title } by ${ block.user.full_name }">
+							<figcaption>
+								<h3>${ block.generated_title }</h3>
+								<p>${ block.description_html }</p>
+							</figcaption>
+							<button class="close-button">X</button>
+						</section>
+					</div>
+				</li>
+				`
+			channelBlocks.insertAdjacentHTML('beforeend', linkItem)
+		} else {
+			let linkItem =
+				`
+				<li class="block block--link">
+					<button class="image-button">
+						<picture>
+							<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
+							<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
+							<img src="${ block.image.original.url }">
+						</picture>
+					</button>
+					<div class="block--link__description">
+						<section class="flex_desc">
+							<img src="${ block.image.original.url }" alt="${ block.generated_title } by ${ block.user.full_name }">
+							<figcaption>
+								<h3>${ block.generated_title }</h3>
+							</figcaption>
+							<button class="close-button">X</button>
+						</section>
+					</div>
+				</li>
+				`
+			channelBlocks.insertAdjacentHTML('beforeend', linkItem)
+		}
 	}
 
 	// Images!
@@ -93,15 +127,44 @@ let renderBlock = (block) => {
 
 	// Text!
 	else if (block.class == 'Text') {
-		let textItem =
+		if (block.title.length = 0) {
+			let textItem =
 			`
-			<li class="quote">
-                <blockquote>${ block.content_html }</blockquote>
-            </li>
+			<li class="block block--quote">
+				<button class="image-button">
+                	<blockquote>${ block.content_html }</blockquote>
+				</button>
+				<div class="block--quote__description">
+					<section class="flex_desc">
+						<figcaption>
+							<p>${ block.content_html }</p>
+						</figcaption>
+						<button class="close-button">X</button>
+					</section>
+				</div>
+			</li>
 			`
-			//<p class="author">${block.title}</p>
-
-		channelBlocks.insertAdjacentHTML('beforeend', textItem)
+			channelBlocks.insertAdjacentHTML('beforeend', textItem)
+		} else {
+			let textItem =
+			`
+			<li class="block block--quote">
+				<button class="image-button">
+                	<blockquote>${ block.content_html }</blockquote>
+				</button>
+				<div class="block--quote__description">
+					<section class="flex_desc">
+						<figcaption>
+							<p>${ block.content_html }</p>
+							<p class="author">${block.title}</p>
+						</figcaption>
+						<button class="close-button">X</button>
+					</section>
+				</div>
+			</li>
+			`
+			channelBlocks.insertAdjacentHTML('beforeend', textItem)
+		}
 	}
 
 	// Uploaded (not linked) media…
