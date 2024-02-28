@@ -41,9 +41,9 @@ let renderBlock = (block) => {
 							<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
 							<img src="${ block.image.original.url }">
 						</picture>
-					</button
+					</button>
 					<div class="block--link__description">
-						<section class="flex_desc">
+						<section class="link_flex_desc">
 							<img src="${ block.image.original.url }" alt="${ block.generated_title } by ${ block.user.full_name }">
 							<figcaption>
 								<h3>${ block.generated_title }</h3>
@@ -221,10 +221,19 @@ let renderBlock = (block) => {
 			// …still up to you, but here’s an `audio` element:
 			let audioItem =
 				`
-				<li class="block block--image">
+				<li class="block block--audio">
 					<button class="image-button">
 						<img src="https://img.freepik.com/free-vector/sound-wave-black-digital-background-entertainment-technology_53876-116186.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1708646400&semt=ais" alt="audio waves b&w">
 					</button>
+					<div class="block--audio__description">
+						<section class="audio_flex_desc">
+							<figcaption>
+								<h3>${ block.title }</h3>
+								<audio controls src="https://arena-attachments.s3.amazonaws.com/26634460/5ed228a9c8e0cf46b47d2fabeb404b81.mp3?1709051438"></audio>
+							</figcaption>
+							<button class="close-button">X</button>
+						</section>
+					</div>
 				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', audioItem)
@@ -260,6 +269,13 @@ let renderBlock = (block) => {
 					<button class="image-button">
 						<img src="https://img.freepik.com/free-vector/sound-wave-black-digital-background-entertainment-technology_53876-116186.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1708646400&semt=ais" alt="audio waves b&w">
 					</button>
+					<div class="block--audio__description">
+						<section class="audio_flex_desc">
+							<audio controls src="https://arena-attachments.s3.amazonaws.com/26634460/5ed228a9c8e0cf46b47d2fabeb404b81.mp3?1709051438"></audio>
+							<h3>${ block.title }</h3>
+							<button class="close-button">X</button>
+						</section>
+					</div>
 				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', linkedAudioItem)
