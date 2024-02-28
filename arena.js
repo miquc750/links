@@ -320,6 +320,8 @@ document.addEventListener('DOMContentLoaded', () => {
 let addScrolling = () => {
 	let highlightClass = 'highlight' // Variables again.
 	let highlightBlocks = document.querySelectorAll('.block') // Get all of them.
+	let highlightCircles = document.querySelectorAll('.circle') // Get all of them.
+	let highlightLetters = document.querySelectorAll('.letter') // Get all of them.
 	
 	// Loop through the list, doing this `forEach` one.
 	highlightBlocks.forEach((block) => {
@@ -333,10 +335,44 @@ let addScrolling = () => {
 			}
 		}, {
 			root: document, // This is only needed in the example iframe!
-			rootMargin: '-33% 0% -33% 0%', // CSS-ish: top/right/bottom/left.
+			rootMargin: '0% 0% -25% 0%', // CSS-ish: top/right/bottom/left.
 		})
 	
 		sectionObserver.observe(block) // Watch each one!
+	})
+
+	highlightCircles.forEach((circle) => {
+		let sectionObserver = new IntersectionObserver((entries) => {
+			let [entry] = entries
+	
+			if (entry.isIntersecting) {
+				circle.classList.add(highlightClass)
+			} else {
+				circle.classList.remove(highlightClass)
+			}
+		}, {
+			root: document, // This is only needed in the example iframe!
+			rootMargin: '0% 0% 0% 0%', // CSS-ish: top/right/bottom/left.
+		})
+	
+		sectionObserver.observe(circle) // Watch each one!
+	})
+
+	highlightLetters.forEach((letter) => {
+		let sectionObserver = new IntersectionObserver((entries) => {
+			let [entry] = entries
+	
+			if (entry.isIntersecting) {
+				letter.classList.add(highlightClass)
+			} else {
+				letter.classList.remove(highlightClass)
+			}
+		}, {
+			root: document, // This is only needed in the example iframe!
+			rootMargin: '0% 0% 0% 0%', // CSS-ish: top/right/bottom/left.
+		})
+	
+		sectionObserver.observe(letter) // Watch each one!
 	})
 }
 

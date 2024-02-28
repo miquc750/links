@@ -71,24 +71,33 @@
         overflow: visible;
     }
 
-    .introductory-quote {
+    .letter {
         display: flex;
         flex-direction: column;
         gap: var(--gutter);
         align-items: end;
         text-align: center;
         justify-content: center;
-        border-top: red solid 1px;
-        border-bottom:  red solid 1px;
-        border-radius: 0 30% 0 15%;
         padding: 20%;
-        margin-bottom: 25%;
         min-height: 100vh;
         text-wrap:wrap;
         flex-wrap: nowrap;
     }
 
-    .introductory-quote blockquote {
+    .storytelling {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        border-top: red solid 1px;
+        border-bottom:  red solid 1px;
+        border-radius: 0 30% 0 15%;
+        margin-bottom: 25%;
+    }
+
+    .letter blockquote {
         font-family: 'Italiana';
         align-self: center;
         font-size: calc(var(--font-size)*4);
@@ -630,12 +639,6 @@
 
     /* elements /mobile/ */
 
-    .block.highlight {
-        filter: unset;
-        z-index: 2;
-        transition: 1s linear all;
-    }
-
     #header-button {
         font-family: 'Montserrat';
         font-size: var(--font-size);
@@ -963,6 +966,186 @@
         filter: grayscale(100%) blur(4.5px);
     }
 
+    .letter.highlight #l1 {
+        animation: letter1 2s linear 5s;
+    }
+
+    @keyframes letter1 {
+        100% {
+            transform: translate(-50vw,50vh);
+        }
+    }
+
+    .letter.highlight #l2 {
+        animation: letter2 2s linear 5s;
+    }
+
+    @keyframes letter2 {
+        100% {
+            transform: translate(-40vw,50vh);
+        }
+    }
+
+    .letter.highlight #l3 {
+        animation: letter3 2s linear 5s;
+    }
+
+    @keyframes letter3 {
+        100% {
+            transform: translate(-30vw,50vh);
+        }
+    }
+
+    .letter.highlight #l4 {
+        animation: letter4 2s linear 5s;
+    }
+
+    @keyframes letter4 {
+        100% {
+            transform: translate(-20vw,50vh);
+        }
+    }
+
+    .letter.highlight #l5 {
+        animation: letter5 2s linear 5s;
+    }
+
+    @keyframes letter5 {
+        100% {
+            transform: translate(-10vw,50vh);
+        }
+    }
+
+    .letter.highlight #l6 {
+        animation: letter6 2s linear 5s;
+    }
+
+    @keyframes letter6 {
+        100% {
+            transform: translate(-5vw,50vh);
+        }
+    }
+
+    .letter.highlight #l7 {
+        animation: letter7 2s linear 5s;
+    }
+
+    @keyframes letter7 {
+        100% {
+            transform: translate(0vw,50vh);
+        }
+    }
+
+    .letter.highlight #l8 {
+        animation: letter8 2s linear 5s;
+    }
+
+    @keyframes letter8 {
+        100% {
+            transform: translate(0vw,50vh);
+        }
+    }
+
+    .letter.highlight #l9 {
+        animation: letter9 2s linear 5s;
+    }
+
+    @keyframes letter9 {
+        100% {
+            transform: translate(0vw,50vh);
+        }
+    }
+
+    .letter.highlight #l10 {
+        animation: letter10 2s linear 5s;
+    }
+
+    @keyframes letter10 {
+        100% {
+            transform: translate(5vw,50vh);
+        }
+    }
+
+    .letter.highlight #l11 {
+        animation: letter11 2s linear 5s;
+    }
+
+    @keyframes letter11 {
+        100% {
+            transform: translate(10vw,50vh);
+        }
+    }
+
+    .letter.highlight #l12 {
+        animation: letter12 2s linear 5s;
+    }
+
+    @keyframes letter12 {
+        100% {
+            transform: translate(20vw,50vh);
+        }
+    }
+
+    .letter.highlight #l13 {
+        animation: letter13 2s linear 5s;
+    }
+
+    @keyframes letter13 {
+        100% {
+            transform: translate(30vw,50vh);
+        }
+    }
+
+    .letter.highlight #l14 {
+        animation: letter14 2s linear 5s;
+    }
+
+    @keyframes letter14 {
+        100% {
+            transform: translate(40vw,50vh);
+        }
+    }
+
+    .letter.highlight #l15 {
+        animation: letter15 2s linear 5s;
+    }
+
+    @keyframes letter15 {
+        100% {
+            transform: translate(50vw,50vh);
+        }
+    }
+
+    .letter.highlight #l16 {
+        animation: letter16 2s linear 5s;
+    }
+
+    @keyframes letter16 {
+        100% {
+            transform: translate(60vw,50vh);
+        }
+    }
+
+    .letter.highlight #l17 {
+        animation: letter17 2s linear 5s;
+    }
+
+    @keyframes letter17 {
+        100% {
+            transform: translate(60vw,50vh);
+        }
+    }
+
+    .letter.highlight #l18 {
+        animation: letter18 2s linear 5s;
+    }
+
+    @keyframes letter18 {
+        100% {
+            transform: translate(60vw,50vh);
+        }
+    }
+
 
 
 /* Desktop */
@@ -988,8 +1171,14 @@
 
     footer {
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        text-align: left;
+        align-items: center;
+        width: 100%;
+    }
+
+    footer p {
+        max-width: 100%;
     }
 
     /* specific sections /desktop/ */
@@ -1114,7 +1303,50 @@
         transform: scale(1.5);
         z-index: 1;
         transition: 1s ease-in-out;
-     }
+    }
+
+    .circle {
+        position:absolute;
+        width: 200vw;
+        height: 200vw;
+        background: var(--black);
+        border-radius: 50%;
+        z-index: 0;
+    }
+
+    .circle.highlight {
+        background: red;
+        animation: pulse 4s ease-in 0s;
+    }
+      
+    @keyframes pulse {
+        0% {
+          transform: scale(0.01);
+          opacity: 5%;
+        }
+        50% {
+          transform: scale(0.1);
+          opacity: 50%;
+        }
+        75% {
+            transform: scale(0.08);
+            opacity: 100%;
+        }
+        100% {
+          transform: scale(1);
+          background: red;
+          opacity: 100%;
+        }
+      }
+
+    .block {
+        opacity: 0;
+    }
+
+    .block.highlight {
+        opacity: 1;
+        transition: 1s linear all;
+    }
     
     /* text /desktop/ */
     h1 {
@@ -1157,10 +1389,23 @@
         font-size: calc(var(--font-size)/1.1);
     }
     
-    .introductory-quote {
+    .letter {
+        display: flex;
+        color: var(--black);
+        flex-direction: row;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        gap: var(--gutter);
+        padding: 30%;
+        z-index: 1;
+    }
+
+    .letter div {
+        display: flex;
         flex-direction: row;
         gap: 0;
-        padding: 30%;
     }
 
 
@@ -1189,6 +1434,18 @@
         transition: 0.5s ease-in;
     }
 }
+
+
+/*specific animation for mobile */
+
+@media (max-width:768px) {
+    .block.highlight {
+        filter: unset;
+        z-index: 2;
+        transition: 1s linear all;
+    }
+}
+
 
 /* accessibility */
 
