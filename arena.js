@@ -140,8 +140,8 @@ let renderBlock = (block) => {
 				</button>
 				<div class="block--quote__description">
 					<section class="flex_desc">
-						<figcaption>
-							<p id="bigquote">${ block.content_html }</p>
+						<figcaption class="bigquote">
+							<p>${ block.content_html }</p>
 							<p>contributed by <span class="contributor">${ block.user.full_name }</span></p>
 						</figcaption>
 						<button class="close-button">X</button>
@@ -159,9 +159,9 @@ let renderBlock = (block) => {
 				</button>
 				<div class="block--quote__description">
 					<section class="flex_desc">
-						<figcaption>
-							<p id="bigquote">${ block.content_html }</p>
-							<p class="author">${block.title}</p>
+						<figcaption class="bigquote">
+							<p>${ block.content_html }</p>
+							<p clas=".author">${block.title}</p>
 							<p>contributed by <span class="contributor">${ block.user.full_name }</span></p>
 						</figcaption>
 						<button class="close-button">X</button>
@@ -279,6 +279,7 @@ let renderBlock = (block) => {
 						<section class="audio_flex_desc">
 							<audio controls src="https://arena-attachments.s3.amazonaws.com/26634460/5ed228a9c8e0cf46b47d2fabeb404b81.mp3?1709051438"></audio>
 							<h3>${ block.title }</h3>
+							<p>contributed by <span class="contributor">${ block.user.full_name }</span></p>
 							<button class="close-button">X</button>
 						</section>
 					</div>

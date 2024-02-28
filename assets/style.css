@@ -299,11 +299,6 @@
 
         /* Text blocks */
 
-        #bigquote {
-            font-style: italic;
-            font-size:156px;
-        }
-
         .block--quote h2 {
             padding-top: calc(var(--gutter)*4);
         }
@@ -490,19 +485,15 @@
         .block--audio__description .audio_flex_desc {
             position: fixed;
             display: grid;
-            grid-template-rows: 1fr 1fr;
+            grid-template-rows: 1fr;
             grid-template-columns: 9fr 1fr;
             justify-content: center;
-            /*display: flex;
-            flex-direction: column;
-            justify-content:space-between ;
-            align-items: start;*/
             gap: var(--gutter);
-            /*inset: 20%; desktop */
             inset: 5%;
             padding: 3%;
             background-color: var(--white);
             border-radius: 16px;
+            z-index: 5;
         }
 
         
@@ -521,6 +512,9 @@
             display: flex;
             flex-direction: column;
             gap: calc(var(--gutter)*2);
+            grid-row: 1;
+            grid-column: 1;
+            padding-left: 16px;
         }
 
         .block--audio h2 {
@@ -625,10 +619,6 @@
         margin-bottom: calc(var(--gutter)/2);
     }
 
-    .author {
-        padding-top: calc(var(--gutter)/2);
-    }
-
     .author::before {
         content:"— ";
     }
@@ -657,7 +647,7 @@
         content: "»";
     }
 
-    h3, figcaption, .pdf h2 {
+    h3, .pdf h2 {
         font-family: 'Italiana';
         font-size: calc(var(--font-size)*2);
         line-height: 1.25;
@@ -669,7 +659,7 @@
 
     figcaption {
         margin: calc(var(--gutter)*2);
-
+        font-size: calc(var(--font-size)*3);
     }
 
     em {
