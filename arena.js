@@ -48,6 +48,7 @@ let renderBlock = (block) => {
 							<figcaption>
 								<h3>${ block.generated_title }</h3>
 								<p>${ block.description_html }</p>
+								<p>contributed by <span class="contributor">${ block.user.full_name }</span></p>
 							</figcaption>
 							<button class="close-button">X</button>
 						</section>
@@ -71,6 +72,7 @@ let renderBlock = (block) => {
 							<img src="${ block.image.original.url }" alt="${ block.generated_title } by ${ block.user.full_name }">
 							<figcaption>
 								<h3>${ block.generated_title }</h3>
+								<p>contributed by <span class="contributor">${ block.user.full_name }</span></p>
 							</figcaption>
 							<button class="close-button">X</button>
 						</section>
@@ -96,6 +98,7 @@ let renderBlock = (block) => {
 						<figcaption>
 							<h3>${ block.title }</h3>
 							<p>${ block.description_html }</p>
+							<p>contributed by <span class="contributor">${ block.user.full_name }</span></p>
 						</figcaption>
 						<button class="close-button">X</button>
 					</section>
@@ -115,6 +118,7 @@ let renderBlock = (block) => {
 						<img src="${ block.image.large.url }" alt="${ block.title } by ${ block.user.full_name }">
 						<figcaption>
 							<h3>${ block.title }</h3>
+							<p>contributed by <span class="contributor">${ block.user.full_name }</span></p>
 						</figcaption>
 						<button class="close-button">X</button>
 					</section>
@@ -137,7 +141,8 @@ let renderBlock = (block) => {
 				<div class="block--quote__description">
 					<section class="flex_desc">
 						<figcaption>
-							<p>${ block.content_html }</p>
+							<p id="bigquote">${ block.content_html }</p>
+							<p>contributed by <span class="contributor">${ block.user.full_name }</span></p>
 						</figcaption>
 						<button class="close-button">X</button>
 					</section>
@@ -155,8 +160,9 @@ let renderBlock = (block) => {
 				<div class="block--quote__description">
 					<section class="flex_desc">
 						<figcaption>
-							<p>${ block.content_html }</p>
+							<p id="bigquote">${ block.content_html }</p>
 							<p class="author">${block.title}</p>
+							<p>contributed by <span class="contributor">${ block.user.full_name }</span></p>
 						</figcaption>
 						<button class="close-button">X</button>
 					</section>
