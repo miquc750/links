@@ -619,6 +619,11 @@
         margin-bottom: calc(var(--gutter)/2);
     }
 
+    .source {
+        font-family: 'Montserrat';
+        margin-top: var(--gutter);
+    }
+
     .author::before {
         content:"— ";
     }
